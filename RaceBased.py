@@ -9,9 +9,6 @@ batch = pd.read_excel(r'D:\WFH\excel\Batch.xlsx', sheet_name='Batch_11', header=
 username_column = batch['Username']
 race_column = batch['Race']
 
-print(username_column)
-print(race_column)
-
 ori_path = r'D:\WFH\finished\new face\cropped\batch_11'
 des_chinese = r'D:\WFH\ML Data\Race\chinese'
 des_dayak = r'D:\WFH\ML Data\Race\dayak'
