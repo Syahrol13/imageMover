@@ -3,13 +3,16 @@ from distutils.dir_util import copy_tree
 import pandas as pd
 import shutil
 
-batch = pd.read_excel(r'D:\WFH\excel\Batch.xlsx', sheet_name='Batch_7', header=0, engine='openpyxl')
+batch = pd.read_excel(r'D:\WFH\excel\Batch.xlsx', sheet_name='Batch_11', header=0, engine='openpyxl')
 
 # (class)declare each column data into each array
 username_column = batch['Username']
 race_column = batch['Race']
 
-ori_path = r'D:\WFH\finished\new face\cropped\batch_7'
+print(username_column)
+print(race_column)
+
+ori_path = r'D:\WFH\finished\new face\cropped\batch_11'
 des_chinese = r'D:\WFH\ML Data\Race\chinese'
 des_dayak = r'D:\WFH\ML Data\Race\dayak'
 des_indian = r'D:\WFH\ML Data\Race\indian'
@@ -61,53 +64,54 @@ for name in username_column:
             desfile = os.path.join(des_chinese, "Chinese" + str(a) + ".jpg")
             shutil.copy2(fullfile, desfile)
             a+=1
-        i+=1
+
     elif race_column[i] == "Dayak":
         for file in os.listdir(new_path):
             fullfile = os.path.join(new_path, file)
             desfile = os.path.join(des_dayak, "Dayak" + str(b) + ".jpg")
             shutil.copy2(fullfile, desfile)
             b+=1
-        i+=1
+
     elif race_column[i] == "Indian":
         for file in os.listdir(new_path):
             fullfile = os.path.join(new_path, file)
             desfile = os.path.join(des_indian, "Indian" + str(c) + ".jpg")
             shutil.copy2(fullfile, desfile)
             c += 1
-        i += 1
+
     elif race_column[i] == "Japanese":
         for file in os.listdir(new_path):
             fullfile = os.path.join(new_path, file)
             desfile = os.path.join(des_japanese, "Japanese" + str(d) + ".jpg")
             shutil.copy2(fullfile, desfile)
             d+=1
-        i+=1
+
     elif race_column[i] == "Korean":
         for file in os.listdir(new_path):
             fullfile = os.path.join(new_path, file)
             desfile = os.path.join(des_korean, "Korean" + str(e) + ".jpg")
             shutil.copy2(fullfile, desfile)
             e+=1
-        i+=1
+
     elif race_column[i] == "Malay":
         for file in os.listdir(new_path):
             fullfile = os.path.join(new_path, file)
             desfile = os.path.join(des_malay, "Malay" + str(f) + ".jpg")
             shutil.copy2(fullfile, desfile)
             f+=1
-        i+=1
+
     elif race_column[i] == "Others":
         for file in os.listdir(new_path):
             fullfile = os.path.join(new_path, file)
             desfile = os.path.join(des_others, "Others" + str(g) + ".jpg")
             shutil.copy2(fullfile, desfile)
             g+=1
-        i+=1
-    else:
+
+    elif race_column[i] == "Western":
         for file in os.listdir(new_path):
             fullfile = os.path.join(new_path, file)
             desfile = os.path.join(des_western, "Western" + str(h) + ".jpg")
             shutil.copy2(fullfile, desfile)
             h+=1
-        i+=1
+
+    i+=1
